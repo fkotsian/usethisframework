@@ -1,0 +1,17 @@
+<%= @framework.name %>
+<br>
+<%= @framework.description %>
+
+<ul>
+  <% @framework.items.each do |item| %>
+    <li><%= item.name %> <br> <%= item.explanation %></li>
+  <% end %>
+</ul>
+
+<% @framework.items.each do |item| %>
+  <%= form_for :item do |f| %>
+    <%= f.label item.name %>
+    <%= f.text_area :name, cols: 100, rows: 1 %>
+  <% end %>
+  <br>
+<% end %>

@@ -21,6 +21,18 @@ Let's make a derpy page with forms quickly!
 Schema: 
 
 create page "technique"
+model "framework"
+  - name
+  - author
+  - linktooriginal
+  - has_many :items
+  
+model "item"
+  - belongs_to "framework"
+  - text
+  
+view "technique" show
+  for every item, display a textfield "box"
 
 
 
