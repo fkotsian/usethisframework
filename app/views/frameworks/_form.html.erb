@@ -1,0 +1,23 @@
+<%= form_for framework do |f| %>
+  Framework <%= f.label :name %>: <%= f.text_field :name %>
+  <br>
+  Framework <%= f.label :description %>: <%= f.text_area :description, rows: 1, cols: 100 %>
+  <br>
+    
+  <% framework.items.each do |item| %>
+    <br>
+    <%= fields_for :items, item do |itemf| %>
+      Item <%= itemf.label :name %>: <%= itemf.text_field :name %>
+      <%= itemf.label :explanation %>: <%= itemf.text_area :explanation, rows: 1, cols: 100 %>    
+    <% end %>
+    <br>
+  <% end %>
+  <br>
+    
+  Framework <%= f.label :author %>: <%= f.text_field :author %>
+  <br>  
+  Framework <%= f.label :link_to_original %>: <%= f.url_field :link_to_original %>
+  <br><br>
+    
+  <%= f.submit %>
+<% end %>
